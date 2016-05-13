@@ -17,12 +17,18 @@ if (this.DrawCircles === undefined) this.DrawCircles = {};
 
   }
 
-  function circleOverlay(x, y, r, d, bool) {
+  function circleOverlay(x, y, p, r, bool) {
     ctx.lineWidth = 8;
     ctx.strokeStyle = 'rgba(245, 205, 40, 1.0)';
     ctx.beginPath()
-    ctx.arc(x, y, 80, 0, r * Math.PI/d, bool);
+    ctx.arc(x, y, 80, p, r * Math.PI, bool);
     ctx.stroke();
+  }
+
+  function circleValues(number, x, y) {
+    ctx.fillStyle = 'rgba(245, 205, 40, 1.0)';
+    ctx.font = '60pt sans-serif';
+    ctx.fillText(number, x, y);
   }
 
 
@@ -31,10 +37,11 @@ if (this.DrawCircles === undefined) this.DrawCircles = {};
 
 
     drawCircle(125, 125);
-    circleOverlay(125, 125, 4, 2, true);
+    circleOverlay(125, 125, 0,  2, true);
+    circleValues('100', 60, 150);
     drawCircle(350, 125);
-    circleOverlay(350, 125, 3, 2, true);
-    circleOverlay(350, 125, 1, 5, false);
+    circleOverlay(350, 125, 0.75, 1.5, true);
+    circleValues('37', 315, 150);
 
     //Call your code here
     console.log('starting!', context);
